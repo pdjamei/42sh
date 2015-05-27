@@ -6,7 +6,7 @@
 /*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/22 20:00:37 by pdjamei           #+#    #+#             */
-/*   Updated: 2014/03/28 16:13:39 by pdjamei          ###   ########.fr       */
+/*   Updated: 2015/03/16 16:09:36 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ char	*ft_trim(char *s)
 			i++;
 		}
 		free(tmp[i - 1]);
-		tmp[i - 1] = '\0';
+		tmp[i - 1] = NULL;
 		free(tmp[i]);
 		free (s);
 		s = ft_glue(tmp);
@@ -96,6 +96,5 @@ char	*ft_trim(char *s)
 
 void	ft_pwd(t_gen *env, t_process *p)
 {
-	env = ft_setenv("PWD", "unknown", 0, env);
 	ft_dprintf(p->FD_OUT, "%s\n", (env->env[ft_found("PWD", env)] + 4));
 }

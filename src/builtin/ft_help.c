@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_help.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/27 17:09:40 by mcassagn          #+#    #+#             */
-/*   Updated: 2014/03/27 17:09:43 by mcassagn         ###   ########.fr       */
+/*   Created: 2015/01/09 15:08:01 by pdjamei           #+#    #+#             */
+/*   Updated: 2015/01/09 15:08:05 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void		ft_help(t_process *p, t_builtin **builtin)
 			}
 		}
 		i = 0;
+		ft_dprintf(p->FD_OUT,
+				"help is to be used with one of the following arguments :\n");
 		while (builtin[i]->name != NULL)
-			ft_dprintf(p->FD_OUT, "%s\n", builtin[i++]->name);
+			ft_dprintf(p->FD_OUT, "   %s\n", builtin[i++]->name);
 	}
 }

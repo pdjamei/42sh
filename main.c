@@ -6,7 +6,7 @@
 /*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/27 19:17:24 by pdjamei           #+#    #+#             */
-/*   Updated: 2014/03/27 21:19:03 by mcassagn         ###   ########.fr       */
+/*   Updated: 2015/01/09 15:19:50 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,23 @@ void			ft_parse_and_exec(char *line, t_gen *gen)
 {
 	t_command	*command_lst;
 	char		*tr;
+	int			ret;
 
 	tr = ft_strtrim(line);
 	if (ft_strncmp(tr, "exit", 4) == 0 && (!tr[4] || ft_isspace(tr[4]) == 1))
 	{
+		ret = ft_atoi(tr + 4);
 		ft_strdel(&tr);
 		destroy_gen();
-		exit(0);
+		exit(ret);
 	}
-	ft_strdel(&tr);
 	command_lst = NULL;
 	if (line && line[0])
 	{
-		command_lst = parser(line);
+		command_lst = parser(tr);
 		ft_command(command_lst, gen);
 		command_lst_free(command_lst);
+		ft_strdel(&tr);
 	}
 }
 

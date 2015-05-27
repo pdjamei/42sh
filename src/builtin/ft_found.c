@@ -6,7 +6,7 @@
 /*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/29 16:42:13 by pdjamei           #+#    #+#             */
-/*   Updated: 2014/03/28 16:13:06 by pdjamei          ###   ########.fr       */
+/*   Updated: 2015/03/16 16:11:37 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,11 @@ int		verif_cd(t_gen *gen)
 {
 	int	i;
 
+	i = -1;
 	gen = ft_setenv("HOME", "/", 0, gen);
 	gen = ft_setenv("PWD", "/", 0, gen);
 	gen = ft_setenv("OLDPWD", "/", 0, gen);
-	if (ft_strcmp(gen->env[ft_found("PWD", gen)], "PWD=/"))
-			i = chdir("/");
+	if (ft_strcmp(gen->env[ft_found("PWD", gen)] + 4, "/"))
+		i = chdir("/");
 	return (i);
 }

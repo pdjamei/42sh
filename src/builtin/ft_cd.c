@@ -6,13 +6,14 @@
 /*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/19 20:00:35 by pdjamei           #+#    #+#             */
-/*   Updated: 2014/03/28 16:16:34 by pdjamei          ###   ########.fr       */
+/*   Updated: 2015/02/02 10:22:41 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "builtin.h"
 #include "struct.h"
 #include "error.h"
+#include <unistd.h>
 
 static char		*ft_red(char *p, char *b)
 {
@@ -50,6 +51,9 @@ static char		*ft_dellast(char *s)
 
 static void		ft_checkaccess(char *s, t_gen *env, int ip)
 {
+	char	*buf;
+
+	buf = NULL;
 	if (access(s, F_OK) == -1)
 	{
 		env->ret = ENENTR;
@@ -63,8 +67,10 @@ static void		ft_checkaccess(char *s, t_gen *env, int ip)
 	else
 	{
 		env = ft_setenv("OLDPWD", env->env[ip] + 4, 1, env);
-		env = ft_setenv("PWD", s, 1, env);
 		chdir(s);
+		env = ft_setenv("PWD", getwd(buf), 1, env);
+		if (buf)
+			free(buf);
 	}
 }
 
@@ -73,9 +79,9 @@ static t_gen	*ft_docd(char *path, t_gen *env, int ih, int ip)
 	char		*s;
 	char		*tmp;
 
-	tmp = ft_dellast(env->env[ih] + 5);
+	tmp = ft_dellast(env->env[ih] + 6);
 	if (path[0] == '~' && path[1] == '/')
-		s = ft_red(path + 2, env->env[ih] + 5);
+		s = ft_red(path + 2, env->env[ih] + 6);
 	else if (path[0] == '~')
 		s = ft_red(path + 1, tmp);
 	else if (path[0] == '/')
@@ -95,7 +101,6 @@ t_gen			*ft_cd(char *path, t_gen *env)
 	int	ih;
 	int	ip;
 
-	verif_cd(env);
 	ih = ft_found("HOME", env);
 	ip = ft_found("PWD", env);
 	if (!path || ft_strcmp(path, "~") == 0)

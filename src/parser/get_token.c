@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_token.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/25 16:47:37 by mcassagn          #+#    #+#             */
-/*   Updated: 2014/03/27 21:27:27 by mcassagn         ###   ########.fr       */
+/*   Created: 2015/01/09 15:12:33 by pdjamei           #+#    #+#             */
+/*   Updated: 2015/01/09 15:12:38 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-#define	TYPE token->type
+#define TYPE token->type
 
 static void		get_op_str(char **str, t_sym type, char *token_str)
 {

@@ -6,7 +6,7 @@
 /*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/28 20:53:28 by pdjamei           #+#    #+#             */
-/*   Updated: 2014/03/28 16:09:02 by pdjamei          ###   ########.fr       */
+/*   Updated: 2015/03/16 16:10:06 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char		**ft_environ(char **environ)
 		env[i] = ft_strdup(environ[i]);
 		i++;
 	}
-	env[len] = '\0';
+	env[len] = NULL;
 	return (env);
 }
 
@@ -92,7 +92,9 @@ void		ft_launch(char **com, t_gen *env, int i, int use_env)
 				ft_freetmpenv(tmpenv);
 			}
 			else if (father == 0)
-				execve(tmpenv->env[ft_found("PATH", tmpenv)] + 5, &(com[i]), tmpenv->env);
+			{
+				execve(com[i], &(com[i]), tmpenv->env);
+			}
 		}
 		else
 			env->ret = ENPERM;

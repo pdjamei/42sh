@@ -6,7 +6,7 @@
 /*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/27 19:22:38 by pdjamei           #+#    #+#             */
-/*   Updated: 2014/03/27 19:22:43 by pdjamei          ###   ########.fr       */
+/*   Updated: 2015/01/09 15:16:26 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void				init_env(char **env)
 	gen = recup_gen();
 	if (!env || env[0] == NULL)
 	{
-		ft_putstr_fd("env NULL please retry\n", 2);
+		ft_putstr_fd("Unable to retrieve environment\n", 2);
 		exit(0);
 	}
 	else

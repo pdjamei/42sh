@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcassagn <mcassagn@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pdjamei <pdjamei@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/02/10 12:16:53 by mcassagn          #+#    #+#             */
-/*   Updated: 2014/03/27 17:57:05 by mcassagn         ###   ########.fr       */
+/*   Created: 2015/01/09 14:48:25 by pdjamei           #+#    #+#             */
+/*   Updated: 2015/01/09 14:48:30 by pdjamei          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef		PARSER_H
-# define	PARSER_H
+#ifndef PARSER_H
+# define PARSER_H
 
-# define	FD_IN			fd[0]
-# define	FD_OUT			fd[1]
-# define	FD_ERR			fd[2]
-# define	NEED_NO_SUCCESS	0
-# define	NEED_SUCCESS	1
-# define	NO_CARE_SUCCESS	2
-# define	BACKGROUND		1
-# define	FOREGROUND		0
+# define FD_IN			fd[0]
+# define FD_OUT			fd[1]
+# define FD_ERR			fd[2]
+# define NEED_NO_SUCCESS	0
+# define NEED_SUCCESS	1
+# define NO_CARE_SUCCESS	2
+# define BACKGROUND		1
+# define FOREGROUND		0
 
 typedef enum			e_bool
 {
